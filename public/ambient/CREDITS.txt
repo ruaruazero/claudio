@@ -1,0 +1,32 @@
+Natural ambience recordings distributed with Claudio, revision 2
+
+Recordings were obtained from the Blanket project's curated sound collection:
+https://github.com/rafaelmardojai/blanket
+Its sound-specific licensing is separate from its application source code:
+https://github.com/rafaelmardojai/blanket/blob/master/SOUNDS_LICENSING.md
+
+rain-v2.mp3
+Original recording by alex36917. Loop editing by Porrumentzio.
+https://freesound.org/people/alex36917/sounds/524605/
+License: Creative Commons Attribution 4.0 International (CC BY 4.0).
+https://creativecommons.org/licenses/by/4.0/
+Blanket source blob: 8363fa856dce8c271c08bb136abde73959f6138e
+
+ocean-v2.mp3
+Original recording by Luftrum. Loop editing by Porrumentzio.
+https://freesound.org/people/Luftrum/sounds/48412/
+License: Creative Commons Attribution 4.0 International (CC BY 4.0).
+https://creativecommons.org/licenses/by/4.0/
+Blanket source blob: f63eeccdf887b25c5062ccb1e2c85f5573649bdc
+
+fire-v2.mp3
+Original recording by ezwa.
+https://soundbible.com/1543-Fireplace.html
+License: Public Domain.
+Blanket source blob: 10890350b03b3644bc11299637a915a8738faceb
+
+Claudio adaptations: stereo preserved, rain and ocean excerpted to 90 seconds,
+gentle high-pass/high-shelf/low-pass equalization, two-pass loudness adjustment,
+44.1 kHz stereo MP3 encoding at 192 kbit/s.
+Playback crossfades the first and last three seconds to smooth looping.
+The original authors and editors do not endorse Claudio or these adaptations.

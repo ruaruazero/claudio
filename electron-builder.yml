@@ -1,0 +1,46 @@
+appId: local.claudio.radio
+productName: Claudio
+directories:
+  app: .desktop-stage
+  output: "release/${version}"
+  buildResources: desktop/assets
+files:
+  - main.cjs
+  - preload.cjs
+  - backend.mjs
+  - web/**/*
+  - package.json
+  - README.md
+  - CREDITS.txt
+  - OFL-*.txt
+  - "!**/.env*"
+  - "!**/*.log"
+  - "!**/server.key"
+  - "!**/server.crt"
+asar: true
+asarUnpack:
+  - "**/*.node"
+npmRebuild: false
+mac:
+  category: public.app-category.music
+  icon: desktop/assets/icon.icns
+  identity: null
+  hardenedRuntime: false
+  target:
+    - target: dmg
+      arch:
+        - arm64
+    - target: zip
+      arch:
+        - arm64
+artifactName: "${productName}-${version}-mac-${arch}.${ext}"
+dmg:
+  title: Claudio
+  contents:
+    - x: 150
+      y: 160
+      type: file
+    - x: 440
+      y: 160
+      type: link
+      path: /Applications
