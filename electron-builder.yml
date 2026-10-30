@@ -21,10 +21,12 @@ asar: true
 asarUnpack:
   - "**/*.node"
 npmRebuild: false
+afterSign: scripts/verify-mac-signature.cjs
 mac:
   category: public.app-category.music
   icon: desktop/assets/icon.icns
-  identity: null
+  identity: "-"
+  notarize: false
   hardenedRuntime: false
   target:
     - target: dmg

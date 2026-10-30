@@ -117,8 +117,13 @@ try {
   await page.getByRole("button", { name: "关闭设置" }).click();
   await page.screenshot({ path: join(tmpdir(), "claudio-desktop-1440-night.png") });
   for (const size of [{ width: 390, height: 560 }, { width: 500, height: 900 }, { width: 1180, height: 560 }]) {
-    await application.evaluate(({ BrowserWindow }, size) => BrowserWindow.getAllWindows()[0].setSize(size.width, size.height), size);
-    await page.waitForFunction(size => innerWidth === size.width && innerHeight === size.height, size);
+    const actual = await application.evaluate(({ BrowserWindow }, size) => {
+      const window = BrowserWindow.getAllWindows()[0];
+      window.setSize(size.width, size.height);
+      // macOS may constrain tall windows to the current display's work area.
+      return window.getContentSize();
+    }, size);
+    await page.waitForFunction(([width, height]) => innerWidth === width && innerHeight === height, actual);
     await page.getByRole("button", { name: "设置", exact: true }).click();
     const close = page.getByRole("button", { name: "关闭设置", exact: true });
     const top = await close.evaluate(button => {
@@ -147,7 +152,7 @@ try {
     }
     await close.click();
     await expect(page.locator(".settings-dialog")).not.toBeVisible();
-    assert.equal(await page.locator(".window-drag-region").evaluate(element => element.getBoundingClientRect().width), size.width);
+    assert.equal(await page.locator(".window-drag-region").evaluate(element => element.getBoundingClientRect().width), actual[0]);
   }
   assert.deepEqual(errors, []);
   await application.close();
